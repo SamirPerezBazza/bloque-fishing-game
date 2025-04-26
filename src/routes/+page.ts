@@ -1,14 +1,14 @@
 
-
 import { LiveApi } from '$lib';
 import { error } from '@sveltejs/kit';
 
+export const ssr = false;
 
-export async function load() {
-	const res = await LiveApi();
+export async function load({fetch}) {
+	const res = await LiveApi(fetch);
 
 	if(!res[0] || !res[1]) {
-    throw error(500, 'Error fetching data');
+    error(500, 'Error fetching data');
   }
 
 	return {
