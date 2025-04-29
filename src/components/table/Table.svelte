@@ -1,60 +1,73 @@
 <script lang="ts" generics="T">
-	import Loader from 'components/Loader.svelte';
 	import type { Props } from './table.types';
 
-	let { data, columns, isLoading, title }: Props<T> = $props();
+	let { data, columns, title, disableHeader }: Props<T> = $props();
 </script>
 
 {#if title}
-	<h1>{title}</h1>
+	<h1 class="title">{title}</h1>
 {/if}
 
-{#if isLoading}
-	<Loader />
-{/if}
-
-<table aria-label="Leaderboard">
-	<thead>
-		<tr>
-			{#each columns as column}
-				<th>{column}</th>
+<div class="table-container">
+	<table aria-label="Leaderboard">
+		{#if !disableHeader}
+			<thead>
+				<tr>
+					{#each columns as column}
+						<th>{column}</th>
+					{/each}
+				</tr>
+			</thead>
+		{/if}
+		<tbody>
+			{#each data as item}
+				<tr>
+					{#each columns as column}
+						<td>{item[column]}</td>
+					{/each}
+				</tr>
 			{/each}
-		</tr>
-	</thead>
-	<tbody>
-		{#each data as item}
-			<tr>
-				{#each columns as column}
-					<td>{item[column]}</td>
-				{/each}
-			</tr>
-		{/each}
-	</tbody>
-</table>
+		</tbody>
+	</table>
+</div>
 
 <style>
+	.table-container {
+		max-height: 60vh;
+		overflow-y: auto;
+		border: 1px dashed #ccc;
+		display: block;
+	}
+
 	table {
 		width: 100%;
 		border-collapse: collapse;
 	}
 
-	th,
-	td {
-		padding: 8px 12px;
-		text-align: left;
-		border-bottom: 1px solid #ddd;
+	thead th {
+		position: sticky;
+		top: 0;
+		background-color: #f9f9f9;
+		z-index: 1;
+		border-bottom: 2px dashed #ccc;
+		padding: 8px;
+		text-align: center;
 	}
 
-	th {
-		background-color: #f4f4f4;
+	tbody td {
+		padding: 8px;
+		border-bottom: 1px dashed #eee;
+		text-align: center;
 	}
-	tr:hover {
-		background-color: #f1f1f1;
-	}
-	td {
-		transition: background-color 0.3s;
-	}
-	tr:hover td {
-		background-color: #e0e0e0;
+
+	@media (max-width: 600px) {
+		th:nth-child(3),
+		th:nth-child(5) {
+			display: none;
+		}
+		td:nth-child(3),
+		td:nth-child(5) {
+			display: none;
+		}
 	}
 </style>

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 	import { LEADERBOARD_COLUMNS, LiveApi, MARKET_COLUMNS, marketStore } from '$lib';
-	import Market from 'components/Market.svelte';
 	import Table from 'components/table/Table.svelte';
 	import { leaderboardStore } from '$lib/store/leaderboard.js';
 	import { fetchLiveApi } from './utils.svelte.js';
+	import Leaderboard from 'components/Leaderboard.svelte';
 
 	let { data } = $props();
 
@@ -32,16 +32,12 @@
 	});
 </script>
 
-<Table
-	columns={LEADERBOARD_COLUMNS}
-	data={$leaderboardStore.leaderboard?.players ?? []}
-	isLoading={$leaderboardStore.loading}
-	title="Leaderboard"
-/>
+<Leaderboard />
 
+<!--
 <Table
 	columns={MARKET_COLUMNS}
 	data={$marketStore.market?.items ?? []}
 	isLoading={$marketStore.loading}
 	title="Market"
-/>
+/> -->

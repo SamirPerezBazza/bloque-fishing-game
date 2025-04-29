@@ -1,4 +1,5 @@
 <script>
+	import '../app.css';
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
 
@@ -32,3 +33,15 @@
 <main>
 	<slot />
 </main>
+
+<style>
+	main {
+		width: 100vw;
+		padding: 0 1rem;
+	}
+	:global(*) {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+</style>
