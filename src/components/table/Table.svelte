@@ -9,6 +9,13 @@
 {/if}
 
 <div class="table-container">
+	{#if !disableHeader}
+		<div class="table-header">
+			{#each columns as column}
+				<span>{column}</span>
+			{/each}
+		</div>
+	{/if}
 	<table aria-label="Leaderboard">
 		{#if !disableHeader}
 			<thead>
@@ -32,6 +39,10 @@
 </div>
 
 <style>
+	.title {
+		text-align: center;
+		font-size: 24px;
+	}
 	.table-container {
 		max-height: 60vh;
 		overflow-y: auto;
@@ -46,24 +57,32 @@
 	thead th {
 		position: sticky;
 		top: 0;
-		background-color: #f9f9f9;
+		background-color: #393e46;
 		z-index: 1;
 		padding: 8px;
 		text-align: center;
+		text-transform: capitalize;
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: #393e46;
 	}
 
 	tbody td {
 		padding: 8px;
 		text-align: center;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-height: 20px;
 	}
 
 	@media (max-width: 600px) {
-		th:nth-child(3),
-		th:nth-child(5) {
+		th:nth-child(1),
+		th:nth-child(3) {
 			display: none;
 		}
-		td:nth-child(3),
-		td:nth-child(5) {
+		td:nth-child(1),
+		td:nth-child(3) {
 			display: none;
 		}
 	}

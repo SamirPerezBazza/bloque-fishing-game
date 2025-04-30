@@ -32,7 +32,8 @@
 		margin-bottom: 10px;
 		background-color: #f9f9f9;
 		align-self: center;
-		color: #393e46;
+		color: black;
+		font-weight: 700;
 	}
 
 	.card > div {

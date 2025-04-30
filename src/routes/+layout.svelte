@@ -1,5 +1,4 @@
 <script>
-	import '../app.css';
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
 
@@ -38,7 +37,7 @@
 	main {
 		width: 100vw;
 		height: 100vh;
-		padding: 0 1rem;
+		padding: 1rem;
 		background-color: #222831;
 		color: #dfd0b8;
 	}
@@ -46,5 +45,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		font-family: 'Doto', sans-serif;
 	}
 </style>

@@ -36,17 +36,28 @@
 	});
 </script>
 
+<h1>Bloque's Galatic Fishing</h1>
+
 <Leaderboard />
 
 <button onclick={() => (open = true)} class="market-button">
 	<img alt="Chest" src={chestIcon} />
 </button>
 
-<Drawer {open} on:clickAway={() => (open = false)} size="600px" placement="bottom">
-	<Table columns={MARKET_COLUMNS} data={$marketStore.market?.items ?? []} title="Market" />
+<Drawer {open} on:clickAway={() => (open = false)} size="500px" placement="bottom">
+	<div class="drawer-content">
+		<Table columns={MARKET_COLUMNS} data={$marketStore.market?.items ?? []} title="Market" />
+		<button onclick={() => (open = false)}> Exit </button>
+	</div>
 </Drawer>
 
 <style>
+	h1 {
+		text-align: center;
+		font-size: 24px;
+		color: #dfd0b8;
+	}
+
 	.market-button {
 		width: 42px;
 		background-color: #948979;
@@ -57,5 +68,24 @@
 		position: absolute;
 		bottom: 20px;
 		right: 20px;
+	}
+
+	.drawer-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #222831;
+		height: 100%;
+		padding: 10px 10px 0 10px;
+		gap: 20px;
+	}
+
+	.drawer-content button {
+		background-color: chocolate;
+		color: #dfd0b8;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
 	}
 </style>
