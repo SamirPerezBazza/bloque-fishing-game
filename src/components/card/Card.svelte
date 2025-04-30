@@ -32,13 +32,24 @@
 		margin-bottom: 10px;
 		background-color: #f9f9f9;
 		align-self: center;
-		justify-content: space-between;
+		color: #393e46;
+	}
+
+	.card > div {
+		flex: 1;
 	}
 
 	@media (max-width: 600px) {
 		.xp,
 		.gold {
 			display: none;
+		}
+
+		.username {
+			text-align: center;
+		}
+		.level {
+			text-align: right;
 		}
 	}
 </style>

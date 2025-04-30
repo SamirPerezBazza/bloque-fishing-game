@@ -37,7 +37,10 @@
 <style>
 	main {
 		width: 100vw;
+		height: 100vh;
 		padding: 0 1rem;
+		background-color: #222831;
+		color: #dfd0b8;
 	}
 	:global(*) {
 		margin: 0;

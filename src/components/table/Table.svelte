@@ -35,7 +35,6 @@
 	.table-container {
 		max-height: 60vh;
 		overflow-y: auto;
-		border: 1px dashed #ccc;
 		display: block;
 	}
 
@@ -49,14 +48,12 @@
 		top: 0;
 		background-color: #f9f9f9;
 		z-index: 1;
-		border-bottom: 2px dashed #ccc;
 		padding: 8px;
 		text-align: center;
 	}
 
 	tbody td {
 		padding: 8px;
-		border-bottom: 1px dashed #eee;
 		text-align: center;
 	}
 
