@@ -33,16 +33,21 @@
 	{/if}
 </section>
 
-<div class="leaderboard-header">
-	{#each LEADERBOARD_COLUMNS as column}
-		<span>{column}</span>
-	{/each}
-</div>
-
-<div class="leaderboard-content" bind:this={box} onscroll={parseScroll}>
-	{#each players as player}
-		<Card {...player} />
-	{/each}
+<div class="leaderboard-container" bind:this={box} onscroll={parseScroll}>
+	<table class="leaderboard">
+		<thead class="leaderboard-header">
+			<tr>
+				{#each LEADERBOARD_COLUMNS as column}
+					<th>{column}</th>
+				{/each}
+			</tr>
+		</thead>
+		<tbody>
+			{#each players as player}
+				<Card {...player} />
+			{/each}
+		</tbody>
+	</table>
 </div>
 
 {#if showGoToTop}
@@ -60,20 +65,23 @@
 {/if}
 
 <style>
+	.leaderboard-container {
+		height: 80dvh;
+		overflow-y: auto;
+	}
+	.leaderboard {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0 5px;
+		text-align: center;
+	}
+
 	.leaderboard-header {
-		display: flex;
-		padding: 10px;
 		font-weight: bold;
-	}
-
-	.leaderboard-header span {
 		text-transform: capitalize;
-		flex: 1;
-	}
-
-	.leaderboard-content {
-		height: calc(100vh - 150px);
-		overflow: scroll;
+		position: sticky;
+		top: 0;
+		background-color: #222831;
 	}
 
 	.search-bar {
@@ -122,20 +130,16 @@
 	}
 
 	@media (max-width: 600px) {
-		.leaderboard-header span:nth-child(3),
-		.leaderboard-header span:nth-child(4) {
+		.leaderboard-header th:nth-child(3),
+		.leaderboard-header th:nth-child(4) {
 			display: none;
 		}
 
-		.leaderboard-header span:nth-child(1) {
+		.leaderboard-header th:nth-child(1) {
 			text-align: left;
 		}
 
-		.leaderboard-header span:nth-child(2) {
-			text-align: center;
-		}
-
-		.leaderboard-header span:nth-child(5) {
+		.leaderboard-header th:nth-child(5) {
 			text-align: right;
 		}
 	}

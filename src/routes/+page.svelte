@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import { LEADERBOARD_COLUMNS, LiveApi, MARKET_COLUMNS, marketStore } from '$lib';
+	import { MARKET_COLUMNS, marketStore } from '$lib';
 	import Table from 'components/table/Table.svelte';
 	import { leaderboardStore } from '$lib/store/leaderboard.js';
 	import { fetchLiveApi } from './utils.svelte.js';
@@ -87,5 +87,6 @@
 		padding: 10px 20px;
 		border-radius: 5px;
 		cursor: pointer;
+		font-weight: 900;
 	}
 </style>

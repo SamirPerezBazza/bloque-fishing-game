@@ -8,16 +8,3 @@
 <h3>Last data stored:</h3>
 
 <a href="/"> Refresh </a>
-
-<Table
-	columns={LEADERBOARD_COLUMNS}
-	data={$leaderboardStore.leaderboard?.players ?? []}
-	isLoading={false}
-	title="Leaderboard"
-/>
-<Table
-	columns={MARKET_COLUMNS}
-	data={$marketStore.market?.items ?? []}
-	isLoading={false}
-	title="Market"
-/>

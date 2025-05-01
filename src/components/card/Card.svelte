@@ -12,32 +12,56 @@
 	};
 </script>
 
-<div class="card">
-	<div class="rank">
-		<Trophy color={rankColor(rank)} size={24} />
-	</div>
-	<div class="username">{username}</div>
-	<div class="xp">{xp}</div>
-	<div class="gold">{gold}</div>
-	<div class="level">{level}</div>
-</div>
+<tr class="card">
+	<td class="rank">
+		{#if rank > 3}
+			<span>{rank}</span>
+		{:else}
+			<Trophy color={rankColor(rank)} size={20} />
+		{/if}
+	</td>
+	<td class="username">{username}</td>
+	<td class="xp">{xp}</td>
+	<td class="gold">{gold}</td>
+	<td class="level">{level}</td>
+</tr>
 
 <style>
 	.card {
-		display: flex;
 		align-items: center;
-		padding: 10px;
-		border: 1px solid #ccc;
 		border-radius: 8px;
-		margin-bottom: 10px;
 		background-color: #f9f9f9;
 		align-self: center;
 		color: black;
 		font-weight: 700;
 	}
 
-	.card > div {
-		flex: 1;
+	.username {
+		max-width: 15ch;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.rank {
+		font-size: 20px;
+	}
+
+	.card > td {
+		padding: 10px;
+	}
+
+	tr td:first-child {
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+	tr td:last-child {
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.rank {
+		width: 50px;
 	}
 
 	@media (max-width: 600px) {
@@ -46,9 +70,6 @@
 			display: none;
 		}
 
-		.username {
-			text-align: center;
-		}
 		.level {
 			text-align: right;
 		}

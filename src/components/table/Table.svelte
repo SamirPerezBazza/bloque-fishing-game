@@ -9,13 +9,6 @@
 {/if}
 
 <div class="table-container">
-	{#if !disableHeader}
-		<div class="table-header">
-			{#each columns as column}
-				<span>{column}</span>
-			{/each}
-		</div>
-	{/if}
 	<table aria-label="Leaderboard">
 		{#if !disableHeader}
 			<thead>
