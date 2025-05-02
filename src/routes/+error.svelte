@@ -1,5 +1,6 @@
 <script>
 	import { LEADERBOARD_COLUMNS, leaderboardStore, MARKET_COLUMNS, marketStore } from '$lib';
+	import Leaderboard from 'components/Leaderboard.svelte';
 	import Table from 'components/table/Table.svelte';
 </script>
 
@@ -8,3 +9,5 @@
 <h3>Last data stored:</h3>
 
 <a href="/"> Refresh </a>
+
+<Leaderboard />
