@@ -1,4 +1,4 @@
-<div class="loader-container" style="--duration: 1.5s">
+<div data-testid="loader" class="loader-container" style="--duration: 1.5s">
 	<div class="loader-bar"></div>
 </div>
 

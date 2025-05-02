@@ -12,7 +12,7 @@ Object.defineProperty(window, 'matchMedia', {
 		addEventListener: vi.fn(),
 		removeEventListener: vi.fn(),
 		dispatchEvent: vi.fn()
-	}))
+	})),
 });
 
 // add more mocks here if you need them

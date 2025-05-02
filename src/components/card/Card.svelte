@@ -1,19 +1,13 @@
 <script lang="ts">
 	import Trophy from 'components/icons/Trophy.svelte';
 	import type { Player } from 'types';
+	import { rankColor } from './card.utils';
 
 	let { rank, gold, level, username, xp }: Player = $props();
-
-	const rankColor = (rank: number) => {
-		if (rank === 1) return '#FFD700'; // Gold
-		if (rank === 2) return '#C0C0C0'; // Silver
-		if (rank === 3) return '#CD7F32'; // Bronze
-		return '#000000'; // Default color for other ranks
-	};
 </script>
 
 <tr class="card">
-	<td class="rank">
+	<td class="rank" data-testid="icon">
 		{#if rank > 3}
 			<span>{rank}</span>
 		{:else}

@@ -1,8 +1,9 @@
 
 import { describe, test, expect } from 'vitest';
-import { prettyDOM, render } from '@testing-library/svelte';
+import {  render } from '@testing-library/svelte';
 import type { Leaderboard } from 'types';
 import LeaderboardComponent from 'components/Leaderboard.svelte';
+import { leaderboardStore } from '$lib';
 
 describe('Leaderboard component', () => {
 
@@ -13,14 +14,13 @@ describe('Leaderboard component', () => {
     ]
   }
 
-	test('should render h1', () => {
-		const {findByText, container} = render(LeaderboardComponent, {
-      props: {
-        leaderboard: mockLeaderboard
-      }
-    });
+  leaderboardStore.set({
+    leaderboard: mockLeaderboard,
+    loading: false,
+  });
 
-    console.log(prettyDOM(container))
+	test('should render h1', () => {
+		const {findByText } = render(LeaderboardComponent);
 
     const h1 = findByText('Leaderboard');
 
