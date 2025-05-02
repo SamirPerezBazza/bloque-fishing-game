@@ -7,6 +7,7 @@
 	import Leaderboard from 'components/Leaderboard.svelte';
 	import Drawer from 'svelte-drawer-component';
 	import chestIcon from '$lib/assets/svgs/chest.svg';
+	import Loader from 'components/Loader.svelte';
 
 	let { data } = $props();
 
@@ -16,7 +17,7 @@
 		// set an interval to fetch live data every minute
 		const interval = setInterval(() => {
 			fetchLiveApi();
-		}, 60_000);
+		}, 5_000);
 
 		// set the initial data from load function into the stores
 		if (data) {
@@ -38,6 +39,12 @@
 
 <h1>Bloque's Galatic Fishing</h1>
 
+<div class="loader-container">
+	{#if $leaderboardStore.loading || $marketStore.loading}
+		<Loader />
+	{/if}
+</div>
+
 <Leaderboard />
 
 <button onclick={() => (open = true)} class="market-button">
@@ -56,6 +63,11 @@
 		text-align: center;
 		font-size: 24px;
 		color: #dfd0b8;
+	}
+
+	.loader-container {
+		margin-top: 10px;
+		height: 4px;
 	}
 
 	.market-button {
