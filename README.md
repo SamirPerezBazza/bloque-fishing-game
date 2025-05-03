@@ -1,38 +1,59 @@
-# sv
+# Bloque's Galactic Fishing Game
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Welcome to my solution for the technical assessment from Bloque!  
+This application renders a leaderboard table and a market drawer for the terminal Galactic Fishing Game. It is built using **SvelteKit** and **TypeScript**.
 
-## Creating a project
+## Project Structure
 
-If you're seeing this, you've probably already done this step. Congrats!
+The project is organized as follows:
 
-```bash
-# create a new project in the current directory
-npx sv create
+- **`src/`**: The root directory containing all project files.
+  - **`components/`**: Reusable Svelte components such as the table, loader, and cards.
+  - **`lib/`**: Contains functionality for various parts of the app, including the API, assets, constants, and the store.
+  - **`routes/`**: SvelteKit router directory, housing the pages and client-side fetchers.
+  - **`tests/`**: Configured with Vitest to test different parts of the app.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Getting Started
 
-## Developing
+To set up the project locally:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone the repository.
+2. Install dependencies using your preferred package manager:
 
-```bash
-npm run dev
+   ```bash
+   npm install
+   # or
+   pnpm install
+   # or
+   yarn
+   ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+3. Start the development server:
 
-## Building
+   ```bash
+   npm run dev
+   ```
 
-To create a production version of your app:
+   To open the app in a new browser tab automatically:
+
+   ```bash
+   npm run dev -- --open
+   ```
+
+## Building for Production
+
+To create a production-ready build of the application:
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build locally with:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+npm run preview
+```
+
+---
+
+Thank you for checking out this project! Feel free to contribute or reach out with any feedback.

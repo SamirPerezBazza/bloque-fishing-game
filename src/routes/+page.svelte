@@ -17,7 +17,7 @@
 		// set an interval to fetch live data every minute
 		const interval = setInterval(() => {
 			fetchLiveApi();
-		}, 5_000);
+		}, 60_000);
 
 		// set the initial data from load function into the stores
 		if (data) {
