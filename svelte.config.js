@@ -14,8 +14,9 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			types: 'src/types',
-			components: 'src/components',
+			components: 'src/components'
 		},
+		outDir: 'dist'
 	}
 };
 
